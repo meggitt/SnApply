@@ -1,4 +1,4 @@
-# SnApply - Voice-Assisted Job Application and Tracking Tool
+# SnApply - Apply in a Snap
 
 **SnApply** is an innovative tool that uses voice-assisted data entry to streamline the process of applying for jobs. It simplifies job applications by allowing users to apply for positions without having to manually fill out forms across multiple portals. The tool also verifies job experience directly with companies, tracks applications, and rates companies based on their response times.
 
@@ -129,4 +129,4 @@ We welcome contributions! If you would like to contribute to this project, follo
 
 1. Speech to Text and Text to speech commands (but facing difficulties fine tuning the answers)
 2. User Profile data filling, Recruiter Profile, Job Postings (Couldn't integrate jobpostings to user profile yet)
-3. ![SnApplyRegitserLogin](ezgif-1-8d84241568.gif)
+3. ![SnApplyRegitserLogin](React App - Google Chrome 2024-10-13 11-57-49.mp4)
