@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://Chevva:p6Wpg7AK10UJxrKy@cryptitcluster.8iidxy5.mongodb.net/?retryWrites=true&w=majority&appName=CryptItCluster');
+mongoose.connect('');
 
 app.post('/register', (req, res) => {
     console.log(req.body);
