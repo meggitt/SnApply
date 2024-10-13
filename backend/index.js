@@ -11,7 +11,6 @@ app.use(cors());
 mongoose.connect('mongodb+srv://Chevva:p6Wpg7AK10UJxrKy@cryptitcluster.8iidxy5.mongodb.net/?retryWrites=true&w=majority&appName=CryptItCluster');
 
 app.post('/register', (req, res)=>{
-    // To post / insert data into database
     console.log(req.body);
     const {firstName, lastName, email, password} = req.body;
     FormDataModel.findOne({email: email})
@@ -36,7 +35,7 @@ app.post('/login', (req, res)=>{
         if(user){
             // If user found then these 2 cases
             if(user.password === password) {
-                res.json("success");
+                res.json(user);
             }
             else{
                 res.json("Wrong password");
@@ -44,7 +43,7 @@ app.post('/login', (req, res)=>{
         }
         // If user not found then 
         else{
-            res.json("No records found! ");
+            res.json("No records found!");
         }
     })
 })

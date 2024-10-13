@@ -7,7 +7,7 @@
   height: var(--max-height);
   max-width: var(--max-width);
   min-height: 80vh;
-  min-width: 80vw;
+  min-width: 70vw;
   overflow: hidden;
   position: relative;
   align-items: center;
@@ -16,6 +16,7 @@
   color: white;
   padding: 5%;
   width: 100%;
+  overflow: hidden;
 }
 .mic-container {
   position: fixed;
