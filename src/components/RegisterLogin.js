@@ -1,11 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/RegisterLogin.css';
 
 const RegisterLogin = () => {
     const [isRightPanelActive, setIsRightPanelActive] = useState(true);
+    const [username, setUsername] = useState(""); // Store the username
     const containerRef = useRef(null);
-    const signupFormRef = useRef(null); // Ref for the sign-up form
-    const signinFormRef = useRef(null); // Ref for the sign-in form
+    const signupFormRef = useRef(null);
+    const signinFormRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (isRightPanelActive) {
@@ -25,25 +28,23 @@ const RegisterLogin = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        
-        // Extract form data
+
         const form = e.target;
         const formData = new FormData(form);
         const email = formData.get('email');
         const password = formData.get('password');
-    
+
         if (isRightPanelActive) {
             // Registration flow
             const firstName = formData.get('firstName');
             const lastName = formData.get('lastName');
             const confirmPassword = formData.get('cPassword');
-            
+
             if (password !== confirmPassword) {
                 alert("Passwords do not match!");
                 return;
             }
-            
-            // Send registration request to backend
+
             fetch('http://localhost:3001/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -58,17 +59,16 @@ const RegisterLogin = () => {
             .then(data => {
                 if (data === "success") {
                     alert("Registration successful! Please log in.");
-                    setIsRightPanelActive(false);  // Switch to login panel
-                    signupFormRef.current.reset(); // Clear sign-up form
+                    setIsRightPanelActive(false);
+                    signupFormRef.current.reset();
                 } else {
-                    console.log(data);
                     alert("Registration failed: " + data.message);
                 }
             })
             .catch(error => {
                 console.error("Error during registration:", error);
             });
-            
+
         } else {
             // Login flow
             fetch('http://localhost:3001/login', {
@@ -78,10 +78,9 @@ const RegisterLogin = () => {
             })
             .then(response => response.json())
             .then(data => {
-                if (data === "success") {
-                    alert("Login successful!");
-                    // Redirect or handle successful login
-                    signinFormRef.current.reset(); // Clear sign-in form
+                if (data != "Wrong password" || data != "No records found!") {
+                    setUsername(data.firstName); // Set username
+                    navigate('/dashboard', { state: { username: data.firstName } }); // Pass username to dashboard
                 } else {
                     alert("Login failed: " + data.message);
                 }
