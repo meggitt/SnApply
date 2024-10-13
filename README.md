@@ -129,5 +129,5 @@ We welcome contributions! If you would like to contribute to this project, follo
 
 1. Speech to Text and Text to speech commands (but facing difficulties fine tuning the answers)
 2. User Profile data filling, Recruiter Profile, Job Postings (Couldn't integrate jobpostings to user profile yet)
-3. [SnApplyRegitserLogin](ezgif-1-8d84241568.gif)
+3. ![SnApplyRegitserLogin](ezgif-1-8d84241568.gif)
 4. [DemoDriveLink](https://drive.google.com/file/d/1sC1fgm1REx4BVBn8ilPUv0p7XvsFlyDb/view?usp=sharing)
