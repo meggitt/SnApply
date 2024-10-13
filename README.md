@@ -1,7 +1,3 @@
-Here's an updated `README.md` that reflects your new vision for **SnApply**—a voice-assisted job application tool that simplifies data entry, verifies job experience, avoids multiple job portal accounts, tracks job applications, and rates companies based on their application response time.
-
----
-
 # SnApply - Voice-Assisted Job Application and Tracking Tool
 
 **SnApply** is an innovative tool that uses voice-assisted data entry to streamline the process of applying for jobs. It simplifies job applications by allowing users to apply for positions without having to manually fill out forms across multiple portals. The tool also verifies job experience directly with companies, tracks applications, and rates companies based on their response times.
