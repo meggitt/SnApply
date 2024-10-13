@@ -319,3 +319,8 @@
   border: 1px solid rgba(255, 255, 255, 0.404);
   background: #1e117b;
 }
+
+.check{
+  background-color: #000000;
+  color: white;
+}

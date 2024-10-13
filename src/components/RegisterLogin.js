@@ -5,6 +5,7 @@ import '../css/RegisterLogin.css';
 const RegisterLogin = () => {
     const [isRightPanelActive, setIsRightPanelActive] = useState(true);
     const [username, setUsername] = useState(""); // Store the username
+    const [roleType, setRoleType] = useState("Applicant"); // Default role type
     const containerRef = useRef(null);
     const signupFormRef = useRef(null);
     const signinFormRef = useRef(null);
@@ -45,6 +46,7 @@ const RegisterLogin = () => {
                 return;
             }
 
+            // Send roleType in the registration request
             fetch('http://localhost:3001/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -52,7 +54,8 @@ const RegisterLogin = () => {
                     firstName,
                     lastName,
                     email,
-                    password
+                    password,
+                    roleType, // Include role type here
                 }),
             })
             .then(response => response.json())
@@ -78,9 +81,9 @@ const RegisterLogin = () => {
             })
             .then(response => response.json())
             .then(data => {
-                if (data != "Wrong password" || data != "No records found!") {
+                if (data !== "Wrong password" && data !== "No records found!") {
                     setUsername(data.firstName); // Set username
-                    navigate('/dashboard', { state: { username: data.firstName } }); // Pass username to dashboard
+                    navigate('/dashboard', { state: { user: data } }); // Pass username to dashboard
                 } else {
                     alert("Login failed: " + data.message);
                 }
@@ -105,9 +108,15 @@ const RegisterLogin = () => {
                         <input type="email" name="email" placeholder="Email" className="input" required />
                         <input type="password" name="password" placeholder="Password" className="input" required />
                         <input type="password" name="cPassword" placeholder="Confirm Password" className="input" required />
-                        <br></br>
+                        <br />
+                        {/* Role selection */}
+                        <select className="input" value={roleType} onChange={(e) => setRoleType(e.target.value)}>
+                            <option value="" className='check'>Select Role Type</option>
+                            <option value="Applicant" className='check'>Applicant</option>
+                            <option value="Recruiter" className='check'>Recruiter</option>
+                        </select>
                         <button className="button-85">Sign Up</button>
-                        <br></br>
+                        <br />
                     </fieldset>
                 </form>
             </div>
@@ -117,12 +126,12 @@ const RegisterLogin = () => {
                 <form action="#" className="form" id="form2" ref={signinFormRef} onSubmit={handleFormSubmit}>
                     <fieldset>
                         <legend className='legend'>Login</legend>
-                    <input type="email" name="email" placeholder="Email" className="input" required />
-                    <input type="password" name="password" placeholder="Password" className="input" required />
-                    <a href="#" className="link">Forgot your password?</a>
-                    <br></br>
-                    <br></br>
-                    <button className="button-85">Sign In</button>
+                        <input type="email" name="email" placeholder="Email" className="input" required />
+                        <input type="password" name="password" placeholder="Password" className="input" required />
+                        <a href="#" className="link">Forgot your password?</a>
+                        <br />
+                        <br />
+                        <button className="button-85">Sign In</button>
                     </fieldset>
                 </form>
             </div>
@@ -131,14 +140,14 @@ const RegisterLogin = () => {
             <div className="container__overlay">
                 <div className="overlay">
                     <div className="overlay__panel overlay--left">
-                        <h2 className='Title'>Resume<br></br>Illa</h2>
+                        <h2 className='Title'>Resume<br />Illa</h2>
                         <p className='text'>Already a member?</p>
                         <button className="button-85" id="signIn" onClick={handleSignIn}>
                             Login Now
                         </button>
                     </div>
                     <div className="overlay__panel overlay--right">
-                        <h2 className='Title'>Resume<br></br>Illa</h2>
+                        <h2 className='Title'>Resume<br />Illa</h2>
                         <p className='text'>New Here?</p>
                         <button className="button-85" id="signUp" onClick={handleSignUp}>
                             Register Here

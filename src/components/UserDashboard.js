@@ -5,7 +5,7 @@ import { FaMicrophone } from 'react-icons/fa';
 
 const UserDashboard = () => {
     const location = useLocation();
-    const { username } = location.state || { username: "User" }; 
+    const { user } = location.state; 
     const [notes, setNotes] = useState([]); // State to store notes
     const [listening, setListening] = useState(false); // Track if the mic is listening
     const [isSpeaking, setIsSpeaking] = useState(false); // Track if it's speaking the prompt
@@ -13,7 +13,7 @@ const UserDashboard = () => {
     // Text-to-Speech for a welcome message
     const handleVoice = () => {
         const speech = new SpeechSynthesisUtterance();
-        speech.text = "Welcome to your dashboard! Here you can view your applications and manage your account settings.";
+        speech.text = `Welcome to your ${user.firstName}! Here you can view your applications and manage your account settings.`;
         speech.rate = 1; // Adjust the rate of speech if needed
         window.speechSynthesis.speak(speech);
     };
@@ -51,7 +51,8 @@ const UserDashboard = () => {
     // Function to first say a prompt and then start taking notes
     const handlePromptAndStartVoiceInput = () => {
         const speech = new SpeechSynthesisUtterance();
-        speech.text = "Please start speaking after the beep. Your voice will be saved as notes.";
+        console.log(user);
+        speech.text = `Welcome ${user.firstName}! Here you can view your applications and manage your account settings.Please start speaking after the beep. Your voice will be saved as notes.`;
         speech.rate = 1; // Adjust the rate of speech if needed
 
         // Set a flag to indicate the app is speaking
@@ -69,7 +70,7 @@ const UserDashboard = () => {
     return (
         <div className="dashboard-container">
             <header className="dashboard-header">
-                <h1>Welcome, {username}!</h1>
+                <h1>Welcome, {user.firstName}!</h1>
             </header>
 
             <main className="dashboard-main">
