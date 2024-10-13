@@ -83,7 +83,14 @@ const RegisterLogin = () => {
             .then(data => {
                 if (data !== "Wrong password" && data !== "No records found!") {
                     setUsername(data.firstName); // Set username
-                    navigate('/dashboard', { state: { user: data } }); // Pass username to dashboard
+                    console.log("role:",data.roleType);
+                    if(data.roleType == "Recruiter")
+                    {
+                        console.log("i am here");
+                        navigate('/recDashboard', { state: { user: data } });
+                    }
+                    else {navigate('/dashboard', { state: { user: data } });
+                 } // Pass username to dashboard
                 } else {
                     alert("Login failed: " + data.message);
                 }
@@ -140,14 +147,14 @@ const RegisterLogin = () => {
             <div className="container__overlay">
                 <div className="overlay">
                     <div className="overlay__panel overlay--left">
-                        <h2 className='Title'>Resume<br />Illa</h2>
+                        <h2 className='Title'>SnApply</h2>
                         <p className='text'>Already a member?</p>
                         <button className="button-85" id="signIn" onClick={handleSignIn}>
                             Login Now
                         </button>
                     </div>
                     <div className="overlay__panel overlay--right">
-                        <h2 className='Title'>Resume<br />Illa</h2>
+                        <h2 className='Title'>SnApply</h2>
                         <p className='text'>New Here?</p>
                         <button className="button-85" id="signUp" onClick={handleSignUp}>
                             Register Here

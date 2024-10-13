@@ -6,9 +6,8 @@
     0 0.7rem 0.7rem rgb(0, 0, 0);
   height: var(--max-height);
   max-width: var(--max-width);
-  min-height: 80vh;
+  min-height: max-content;
   min-width: 70vw;
-  overflow: hidden;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -16,7 +15,7 @@
   color: white;
   padding: 5%;
   width: 100%;
-  overflow: hidden;
+  overflow-y: hidden;
 }
 .mic-container {
   position: fixed;
@@ -36,4 +35,54 @@
 
 .mic-container:hover {
   background-color: #0056b3;
+}
+
+.answers{
+  border-radius: 40px;
+  color: var(--white);
+  background-color: transparent;
+  box-shadow:  inset 5px 5px 5px rgb(75, 75, 75), inset -5px -5px 5px rgb(75, 75, 75);
+  border: none;
+  padding: 0.9rem 0.9rem;
+  margin: 0.5rem 0;
+  width: 90%;
+}
+.inputn{
+  border-radius: 0px;
+  color: var(--white);
+  background-color: transparent;
+  box-shadow:  none;
+  border: none;
+  padding: 0.9rem 0.9rem;
+  margin: 0.5rem 0;
+  width: 90%;
+}
+.inputd{
+  background-color: black;
+  color: white;
+}
+.button-85n {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #0b0b0b;
+  box-shadow:  inset 5px 5px 10px rgb(45, 45, 45), inset -5px -5px 10px rgb(45, 45, 45);
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    padding: 2%;
+    width: fit-content;
+}
+.button-85n:hover{
+  box-shadow:  inset 5px 5px 10px rgb(118, 118, 118), inset -5px -5px 10px rgb(90, 90, 90);
+  background-color: #333;
 }
