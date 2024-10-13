@@ -1,70 +1,135 @@
-# Getting Started with Create React App
+Here's an updated `README.md` that reflects your new vision for **SnApply**—a voice-assisted job application tool that simplifies data entry, verifies job experience, avoids multiple job portal accounts, tracks job applications, and rates companies based on their application response time.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+# SnApply - Voice-Assisted Job Application and Tracking Tool
 
-In the project directory, you can run:
+**SnApply** is an innovative tool that uses voice-assisted data entry to streamline the process of applying for jobs. It simplifies job applications by allowing users to apply for positions without having to manually fill out forms across multiple portals. The tool also verifies job experience directly with companies, tracks applications, and rates companies based on their response times.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Voice-Assisted Data Entry**: Submit applications using your voice, reducing the need for manual form completion.
+- **Job Experience Verification**: Automatically verify your past job experiences directly with previous employers.
+- **Centralized Application Tracking**: Track all your job applications in one place, avoiding the need for multiple accounts across different job portals.
+- **Application Process Rating**: Rate companies' application processes based on their response times and receive feedback on their efficiency.
+- **Application Insights**: Gain insights into which companies respond the fastest and where to focus your efforts.
+  
+## Key Benefits
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Time Efficiency**: No need to create multiple accounts or fill in redundant information. One voice command to enter data.
+- **Automated Verification**: Reduce the burden of verifying past job experiences with automated checks from previous employers.
+- **Comprehensive Application Management**: Track and manage all job applications from a single dashboard, without logging in to different job sites.
+- **Company Feedback**: Based on response times and company engagement, SnApply helps you understand which companies provide faster feedback.
 
-### `npm test`
+## Project Status
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project is currently **under development**. While the initial framework and features are in place, we are still working on the following key areas:
+1. **Voice Assistance**: Implementing natural language processing (NLP) to handle voice commands for data entry.
+2. **Experience Verification API**: Building a system that connects with employers to verify job experiences.
+3. **Application Rating System**: Creating a user-driven rating mechanism to evaluate the speed and efficiency of companies’ application processes.
+4. **Job Tracking Dashboard**: Integrating a centralized dashboard for users to track all their applications in one place.
 
-### `npm run build`
+## Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Before using SnApply, ensure that you have the following:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js** (v14.x or higher)
+- **NPM** (v6.x or higher)
+- **Voice API or Speech Recognition Service** (such as Google Cloud Speech-to-Text or Web Speech API)
+- **Database** for storing and tracking job applications and their statuses (e.g., MongoDB, PostgreSQL)
+- **API Access** for verification of job experience (third-party or company-specific)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+1. **Clone the repository**:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/yourusername/SnApply.git
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Navigate to the project directory**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   cd SnApply
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Install the dependencies**:
 
-## Learn More
+   ```bash
+   npm install
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Configure environment variables**:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   You'll need to set up environment variables for services such as speech recognition, API keys for job verification, and database configuration. These should be added to a `.env` file.
 
-### Code Splitting
+   ```bash
+   VOICE_API_KEY=your-voice-api-key
+   DB_CONNECTION_STRING=your-database-connection-string
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+1. **Configure User Profile**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   In the `config` folder, modify the `userProfile.js` file with your personal details, such as name, email, and set of questions. These details will be used to automatically fill job applications.
 
-### Making a Progressive Web App
+   ```js
+   module.exports = {
+     name: "John Doe",
+     email: "johndoe@example.com",
+     questions:[]
+   };
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. **Voice-Assisted Job Application**:
 
-### Advanced Configuration
+   To apply to a job using voice commands, use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   ```bash
+   npm run voiceApply
+   ```
 
-### Deployment
+   The system will prompt you to provide application details using voice, filling out the application form for you.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. **Track Applications**:
 
-### `npm run build` fails to minify
+   Use the following command to view all tracked applications and their statuses:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+   ```bash
+   npm run trackApplications
+   ```
+
+   This will display a list of all job applications, their current status, and response times from each company.
+
+4. **Rate Application Processes**:
+
+   After submitting applications, you can rate the experience based on how long it took to get a response from the company. This feedback helps others evaluate the application process efficiency of different companies.
+
+   ```bash
+   npm run rateCompanies
+   ```
+
+## Future Enhancements
+
+- **Real-time Voice Command Interpretation**: Implement real-time voice recognition to make the process even more interactive.
+- **Company Integration**: Work with companies to streamline the job verification process via API integration.
+- **Advanced Analytics**: Provide users with data insights on company response rates, overall application success rates, and recommendations based on job trends.
+- **Notification System**: Alert users about the status of their applications and upcoming deadlines.
+- **Multi-language Support**: Extend voice-assist functionality to support multiple languages.
+
+
+## Contributing
+
+We welcome contributions! If you would like to contribute to this project, follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a Pull Request, and we'll review your changes!
+
+## What we have done So far
+
+1. Speech to Text and Text to speech commands (but facing difficulties fine tuning the answers)
+2. User Profile data filling, Recruiter Profile, Job Postings (Couldn't integrate jobpostings to user profile yet)
